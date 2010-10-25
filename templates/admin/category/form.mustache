@@ -1,0 +1,26 @@
+<form method="post" class="bp">
+	<fieldset>
+		<legend>{{title}}</legend>
+		{{#errors}}<div class="error">{{{errors}}}</div>{{/errors}}
+		<ul>
+			{{#category}}<li>
+				<label for="name">Name</label><br />
+				<input type="text" name="name" id="name" value="{{name}}" />
+			</li>
+			<li>
+				<label for="order">Order</label><br />
+				<input type="text" name="order" id="order" value="{{order}}" />
+			</li>
+			<li>
+				Parent Category<br />
+				<input type="radio" name="parent_id" value="" id="product_category_root" {{^parent_id}}checked="checked"{{/parent_id}} /> <label for="product_category_root">Root</label>
+				<ul>
+					{{#product_categories}}
+						{{>product_category_form}}
+					{{/product_categories}}
+				</ul>
+			</li>
+			<li><input type="submit" value="Submit" /></li>{{/category}}
+		</ul>
+	</fieldset>
+</form>

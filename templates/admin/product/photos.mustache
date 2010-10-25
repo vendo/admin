@@ -1,0 +1,26 @@
+<form method="post" class="bp">
+	<fieldset>
+		<legend>Choose The Photos</legend>
+		{{#errors}}<div class="error">{{{errors}}}</div>{{/errors}}
+		{{#success}}<div class="success">{{{success}}}</div>{{/success}}
+		<p><input type="submit" value="Save" /></p>
+		<table id="photos">
+			<thead>
+				<tr>
+					<th>Photo ID</th>
+					<th>Image</th>
+					<th>Product Has</th>
+					<th>Product Primary</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#photos}}<tr>
+					<th>{{id}}</th>
+					<th><img src="{{uri}}" alt="{{filename}}" height="50" /></th>
+					<th><input type="checkbox" name="photos[]" value="{{id}}" {{#checked}}checked="checked"{{/checked}} /></th>
+					<th><input type="radio" name="primary_photo_id" value="{{id}}" {{#checked_primary}}checked="checked"{{/checked_primary}} /></th>
+				</tr>{{/photos}} 
+			</tbody>
+		</table>
+	</fieldset>
+</form>

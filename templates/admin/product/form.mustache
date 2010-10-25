@@ -1,0 +1,33 @@
+<form method="post" class="bp">
+	<fieldset>
+		<legend>{{title}}</legend>
+			{{#errors}}<div class="error">{{{errors}}}</div>{{/errors}}
+			<ul>
+				{{#product}}<li>
+					<label for="name">Name</label><br />
+					<input type="text" name="name" id="name" value="{{name}}" />
+				</li>
+				<li>
+					<label for="price">Price</label><br />
+					<input type="text" name="price" id="price" value="{{price}}" />
+				</li>
+				<li>
+					<label for="description">Description</label><br />
+					<textarea name="description" id="description">{{description}}</textarea>
+				</li>
+				<li>
+					<label for="order">Order</label><br />
+					<input type="text" name="order" id="order" value="{{order}}" />
+				</li>
+				<li>
+					Categories<br />
+					<ul>
+						{{#product_categories}}
+							{{>product_category_form}}
+						{{/product_categories}}
+					</ul>
+				</li>
+				<li><input type="submit" value="Submit" /></li>{{/product}}
+			</ul>
+	</fieldset>
+</form>

@@ -1,0 +1,8 @@
+<li>
+	<input type="checkbox" name="category_id[]" value="{{id}}" id="category_{{id}}" {{#has_category}}checked="checked"{{/has_category}} /> <label for="category_{{id}}">{{name}}</label>
+	{{#has_children}}<ul>
+		{{#children}}
+			{{>product_category_form}}
+		{{/children}}
+	</ul>{{/has_children}}
+</li>

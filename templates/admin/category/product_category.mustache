@@ -1,0 +1,8 @@
+<li>
+	{{name}}<br /><a href="admin/category/edit?id={{id}}">Edit</a>
+	{{#has_children}}<ul>
+		{{#children}}
+			{{>product_category}}
+		{{/children}}
+	</ul>{{/has_children}}
+</li>

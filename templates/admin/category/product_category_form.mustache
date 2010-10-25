@@ -1,0 +1,8 @@
+<li>
+	<input type="radio" name="parent_id" value="{{id}}" id="product_category_{{id}}" {{#has_category}}checked="checked"{{/has_category}} /> <label for="product_category_{{id}}">{{name}}</label>
+	{{#has_children}}<ul>
+		{{#children}}
+			{{>product_category_list}}
+		{{/children}}
+	</ul>{{/has_children}}
+</li>

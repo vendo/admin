@@ -1,0 +1,25 @@
+<p><a href="admin/product/add">Add a product</a></p>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Description</th>
+			<th>Order</th>
+			<th>Admin</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#products}}<tr>
+			<td>{{name}}</td>
+			<td>{{price}}</td>
+			<td>{{description}}</td>
+			<td>{{order}}</td>
+			<td>
+				<a href="admin/product/edit?id={{id}}">Edit</a><br />
+				<a href="admin/product/photos?id={{id}}">Photos</a><br />
+				<form action="admin/product/delete" method="post" style="display: inline-block;"><input type="hidden" name="id" value="{{id}}" /><input type="submit" value="delete" /></form>
+			</td>
+		</tr>{{/products}}
+	</tbody>
+</table>

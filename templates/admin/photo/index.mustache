@@ -1,0 +1,16 @@
+<form action="{{action}}" method="post" enctype="multipart/form-data" class="bp">
+	<fieldset>
+		<legend>Upload New Photo</legend>
+		{{#errors}}<div class="error">{{{errors}}}</div>{{/errors}}
+		<ul>
+			<li><input type="file" name="image" /></li>
+			<li><input type="submit" value="Upload Image" /></li>
+		</ul>
+	</fieldset>
+</form>
+<ul id="photos">
+	{{#photos}}<li>
+		<img src="{{uri}}" alt="{{filename}}" />
+	</li>
+	{{/photos}}
+</ul>
