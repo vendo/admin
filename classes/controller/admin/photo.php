@@ -54,7 +54,7 @@ class Controller_Admin_Photo extends Controller_Admin
 			);
 			$image->save(APPPATH.'photos/'.$_FILES['image']['name']);
 
-			$photo = new Model_Photo;
+			$photo = new Model_Vendo_Photo;
 			$photo->file = APPPATH.'photos/'.$_FILES['image']['name'];
 			$photo->save();
 

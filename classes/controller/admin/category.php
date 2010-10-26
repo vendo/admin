@@ -32,7 +32,7 @@ class Controller_Admin_Category extends Controller_Admin
 		$this->request->response->bind('category', $category);
 		$this->request->response->bind('errors', $errors);
 
-		$category = new Model_Product_Category;
+		$category = new Model_Vendo_Product_Category;
 
 		if ($_POST)
 		{
@@ -65,7 +65,7 @@ class Controller_Admin_Category extends Controller_Admin
 		$this->request->response->bind('category', $category);
 		$this->request->response->bind('errors', $errors);
 
-		$category = new Model_Product_Category($id);
+		$category = new Model_Vendo_Product_Category($id);
 
 		if ($_POST)
 		{

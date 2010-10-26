@@ -10,6 +10,6 @@
 
 return array(
 	'use_admin' => array(
-		Model_Role::ADMIN => TRUE,
+		Model_Vendo_Role::ADMIN => TRUE,
 	)
 );

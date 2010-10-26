@@ -23,6 +23,6 @@ class View_Admin_Category_Index extends View_Layout
 	 */
 	public function categories()
 	{
-		return AutoModeler::factory('product_category')->full_tree();
+		return AutoModeler::factory('vendo_product_category')->full_tree();
 	}
 }

@@ -32,7 +32,7 @@ class Controller_Admin_Product extends Controller_Admin
 		$this->request->response->bind('categories', $categories);
 		$this->request->response->bind('errors', $errors);
 
-		$product = new Model_Product;
+		$product = new Model_Vendo_Product;
 		$categories = array();
 
 		if ($_POST)
@@ -46,7 +46,7 @@ class Controller_Admin_Product extends Controller_Admin
 
 				foreach ($categories as $cat_id)
 				{
-					$product_category = new Model_Product_Category($cat_id);
+					$product_category = new Model_Vendo_Product_Category($cat_id);
 					$product_category->products = $product->id;
 				}
 
@@ -71,7 +71,7 @@ class Controller_Admin_Product extends Controller_Admin
 		$this->request->response->bind('product', $product);
 		$this->request->response->bind('errors', $errors);
 
-		$product = new Model_Product($id);
+		$product = new Model_Vendo_Product($id);
 
 		if ($_POST)
 		{
@@ -85,7 +85,7 @@ class Controller_Admin_Product extends Controller_Admin
 
 				foreach ($categories as $cat_id)
 				{
-					$product_category = new Model_Product_Category($cat_id);
+					$product_category = new Model_Vendo_Product_Category($cat_id);
 					$product_category->products = $product->id;
 				}
 
@@ -107,7 +107,7 @@ class Controller_Admin_Product extends Controller_Admin
 	{
 		$id = arr::get($_POST, 'id', NULL);
 
-		$product = new Model_Product($id);
+		$product = new Model_Vendo_Product($id);
 		$product->delete();
 		$this->request->redirect('admin/product');
 	}
@@ -124,7 +124,7 @@ class Controller_Admin_Product extends Controller_Admin
 		$this->request->response->bind('product', $product);
 		$this->request->response->bind('errors', $errors);
 
-		$product = new Model_Product($id);
+		$product = new Model_Vendo_Product($id);
 
 		if ($_POST)
 		{

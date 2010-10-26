@@ -29,7 +29,7 @@ class View_Admin_Product_Form extends View_Layout
 	{
 		return $this->product->as_array()+array(
 			'product_categories' => AutoModeler::factory(
-				'product_category'
+				'vendo_product_category'
 			)->full_tree(NULL, FALSE, $this->product)
 		);
 	}
@@ -41,7 +41,7 @@ class View_Admin_Product_Form extends View_Layout
 	 */
 	public function product_categories()
 	{
-		return AutoModeler_ORM::factory('product_category')->full_tree(
+		return AutoModeler_ORM::factory('vendo_product_category')->full_tree(
 			NULL, TRUE, $this->product
 		);
 	}
