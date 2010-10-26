@@ -81,12 +81,12 @@ class Controller_Admin_Product extends Controller_Admin
 			try
 			{
 				$product->save();
-				$product->remove_all('product_categories');
+				$product->remove_all('vendo_product_categories');
 
 				foreach ($categories as $cat_id)
 				{
 					$product_category = new Model_Vendo_Product_Category($cat_id);
-					$product_category->products = $product->id;
+					$product_category->vendo_products = $product->id;
 				}
 
 				$this->request->redirect('admin/product');
@@ -128,8 +128,8 @@ class Controller_Admin_Product extends Controller_Admin
 
 		if ($_POST)
 		{
-			$product->remove_all('photos');
-			$product->relate('photos', arr::get($_POST, 'photos', array()));
+			$product->remove_all('vendo_photos');
+			$product->relate('vendo_photos', arr::get($_POST, 'photos', array()));
 			$product->primary_photo_id = arr::get(
 				$_POST, 'primary_photo_id', NULL
 			);

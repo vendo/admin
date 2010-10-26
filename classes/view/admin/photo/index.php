@@ -23,7 +23,7 @@ class View_Admin_Photo_Index extends View_Layout
 	public function photos()
 	{
 		$photos = array();
-		foreach (AutoModeler_ORM::factory('photo')->fetch_all() as $photo)
+		foreach (AutoModeler_ORM::factory('vendo_photo')->fetch_all() as $photo)
 		{
 			$photos[] = array(
 				'id' => $photo->id,

@@ -22,13 +22,13 @@ class View_Admin_Product_Photos extends View_Layout
 	public function photos()
 	{
 		$photos = array();
-		foreach (AutoModeler_ORM::factory('photo')->fetch_all() as $photo)
+		foreach (AutoModeler_ORM::factory('vendo_photo')->fetch_all() as $photo)
 		{
 			$photos[] = array(
 				'id' => $photo->id,
 				'filename' => $photo->filename,
 				'uri' => $photo->uri(),
-				'checked' => $this->product->has('photos', $photo->id),
+				'checked' => $this->product->has('vendo_photos', $photo->id),
 				'checked_primary' => $this->product->primary_photo_id
 					== $photo->id,
 			);

@@ -20,7 +20,7 @@ class View_Admin_Product_Index extends View_Layout
 	public function products()
 	{
 		$products = array();
-		foreach (AutoModeler_ORM::factory('product')->fetch_all() as $product)
+		foreach (AutoModeler_ORM::factory('vendo_product')->fetch_all() as $product)
 		{
 			$products[] = $product->as_array();
 		}
