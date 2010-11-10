@@ -47,7 +47,7 @@ class Controller_Admin_Product extends Controller_Admin
 				foreach ($categories as $cat_id)
 				{
 					$product_category = new Model_Vendo_Product_Category($cat_id);
-					$product_category->products = $product->id;
+					$product_category->vendo_products = $product->id;
 				}
 
 				$this->request->redirect('admin/product');
