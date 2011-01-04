@@ -22,7 +22,7 @@ class View_Admin_Product_Photos extends View_Layout
 	public function photos()
 	{
 		$photos = array();
-		foreach (AutoModeler_ORM::factory('vendo_photo')->fetch_all() as $photo)
+		foreach (Model::factory('vendo_photo')->load(NULL, NULL) as $photo)
 		{
 			$photos[] = array(
 				'id' => $photo->id,

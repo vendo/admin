@@ -41,7 +41,7 @@ class View_Admin_Product_Form extends View_Layout
 	 */
 	public function product_categories()
 	{
-		return AutoModeler_ORM::factory('vendo_product_category')->full_tree(
+		return Model::factory('vendo_product_category')->full_tree(
 			NULL, TRUE, $this->product
 		);
 	}
