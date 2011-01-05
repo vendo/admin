@@ -1,0 +1,22 @@
+<p><a href="{{#routes}}{{add_user}}{{/routes}}">Add a user</a></p>
+<table>
+	<thead>
+		<tr>
+			<th>User ID</th>
+			<th>Email</th>
+			<th>Roles</th>
+			<th>Admin</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#users}}<tr>
+			<td>{{id}}</td>
+			<td>{{email}}</td>
+			<td>{{roles}}</td>
+			<td>
+				<a href="{{#routes}}{{edit_user}}{{/routes}}?id={{id}}">Edit</a><br />
+				<form action="{{#routes}}{{delete_user}}{{/routes}}" method="post" style="display: inline-block;"><input type="hidden" name="id" value="{{id}}" /><input type="submit" value="delete" /></form>
+			</td>
+		</tr>{{/users}}
+	</tbody>
+</table>
