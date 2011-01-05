@@ -2,10 +2,10 @@
 /**
  * Admin controller for administering photos
  *
- * @package    Vendo
- * @author     Jeremy Bush
- * @copyright  (c) 2010 Jeremy Bush
- * @license    http://github.com/zombor/Vendo/raw/master/LICENSE
+ * @package   Vendo
+ * @author    Jeremy Bush <contractfrombelow@gmail.com>
+ * @copyright (c) 2010-2011 Jeremy Bush
+ * @license   ISC License http://github.com/zombor/Vendo/raw/master/LICENSE
  */
 class Controller_Admin_Photo extends Controller_Admin
 {
@@ -33,8 +33,8 @@ class Controller_Admin_Photo extends Controller_Admin
 		$validate->rules(
 			'image',
 			array(
-				'Upload::not_empty' => null,
-				'Upload::valid' => null,
+				'Upload::not_empty' => NULL,
+				'Upload::valid' => NULL,
 				'Upload::size' => array('4M'),
 				'Upload::type' => array(
 					array('jpg', 'png', 'gif')
@@ -42,7 +42,7 @@ class Controller_Admin_Photo extends Controller_Admin
 			)
 		);
 
-		if ($validate->check(true))
+		if ($validate->check(TRUE))
 		{
 			// Shrink the image to the lowest max dimension
 			$image = Image::factory($_FILES['image']['tmp_name']);
