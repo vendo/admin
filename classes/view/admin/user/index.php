@@ -39,6 +39,16 @@ class View_Admin_User_Index extends View_Layout
 	}
 
 	/**
+	 * Returns a csrf token for this form
+	 *
+	 * @return string
+	 */
+	public function csrf()
+	{
+		return security::token('user', 'delete');
+	}
+
+	/**
 	 * Returns routes for this view
 	 *
 	 * @return array
@@ -46,9 +56,15 @@ class View_Admin_User_Index extends View_Layout
 	public function routes()
 	{
 		return parent::routes()+array(
-			'add_user' => Route::get('user actions')->uri(array('action' => 'add')),
-			'edit_user' => Route::get('user actions')->uri(array('action' => 'edit')),
-			'delete_user' => Route::get('user actions')->uri(array('action' => 'delete')),
+			'add_user' => Route::get('user actions')->uri(
+				array('action' => 'add')
+			),
+			'edit_user' => Route::get('user actions')->uri(
+				array('action' => 'edit')
+			),
+			'delete_user' => Route::get('user actions')->uri(
+				array('action' => 'delete')
+			),
 		);
 	}
 }

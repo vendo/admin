@@ -15,7 +15,7 @@
 			<td>{{roles}}</td>
 			<td>
 				<a href="{{#routes}}{{edit_user}}{{/routes}}?id={{id}}">Edit</a><br />
-				<form action="{{#routes}}{{delete_user}}{{/routes}}" method="post" style="display: inline-block;"><input type="hidden" name="id" value="{{id}}" /><input type="submit" value="delete" /></form>
+				<form action="{{#routes}}{{delete_user}}{{/routes}}" method="post" style="display: inline-block;">{{{csrf}}}<input type="hidden" name="id" value="{{id}}" /><input type="submit" value="delete" /></form>
 			</td>
 		</tr>{{/users}}
 	</tbody>

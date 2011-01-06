@@ -12,11 +12,12 @@ Route::set(
 	'user actions',
 	'admin/user/<action>.html',
 	array(
-		'action' => 'add|edit|delete'
+		'action' => 'add|edit|delete|index'
 	)
 )->defaults(
 	array(
 		'directory' => 'admin',
 		'controller' => 'user',
+		'action' => 'index',
 	)
 );
