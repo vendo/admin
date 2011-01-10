@@ -1,7 +1,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>User ID</th>
+			<th>Order</th>
 			<th>Purchaser</th>
 			<th>Date</th>
 			<th>Amount</th>
@@ -10,7 +10,7 @@
 	</thead>
 	<tbody>
 		{{#orders}}<tr>
-			<td>{{id}}</td>
+			<td><a href="{{#routes}}{{order_view}}{{/routes}}?id={{id}}">{{id}}</a></td>
 			<td>
 				{{#user_id}}<a href="{{#routes}}{{user}}{{/routes}}?id={{user_id}}">{{user_id}}</a>{{/user_id}}
 				{{^user_id}}{{#contact_id}}<a href="{{#routes}}{{contact}}{{/routes}}?id={{contact_id}}">{{contact_id}}</a>{{/contact_id}}{{/user_id}}

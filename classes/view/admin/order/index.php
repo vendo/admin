@@ -47,9 +47,18 @@ class View_Admin_Order_Index extends View_Admin_Layout
 	public function routes()
 	{
 		return parent::routes()+array(
-			'user' => Route::get('actions')->uri(array('controller' => 'user', 'action' => 'view')),
-			'contact' => Route::get('actions')->uri(array('controller' => 'contact', 'action' => 'view')),
-			'address' => Route::get('actions')->uri(array('controller' => 'address', 'action' => 'view')),
+			'order_view' => Route::get('actions')->uri(
+				array('controller' => 'order', 'action' => 'view')
+			),
+			'user' => Route::get('actions')->uri(
+				array('controller' => 'user', 'action' => 'view')
+			),
+			'contact' => Route::get('actions')->uri(
+				array('controller' => 'contact', 'action' => 'view')
+			),
+			'address' => Route::get('actions')->uri(
+				array('controller' => 'address', 'action' => 'view')
+			),
 		);
 	}
 }
