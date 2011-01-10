@@ -44,8 +44,8 @@ class View_Admin_User_Add extends View_Admin_Layout
 	public function routes()
 	{
 		return parent::routes()+array(
-			'post' => Route::get('user actions')->uri(
-				array('action' => 'add')
+			'post' => Route::get('actions')->uri(
+				array('controller' => 'user', 'action' => 'add')
 			),
 		);
 	}

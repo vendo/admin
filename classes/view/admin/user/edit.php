@@ -44,8 +44,8 @@ class View_Admin_User_Edit extends View_Admin_Layout
 	public function routes()
 	{
 		return parent::routes()+array(
-			'post' => Route::get('user actions')->uri(
-				array('action' => 'edit')
+			'post' => Route::get('actions')->uri(
+				array('controller' => 'user', 'action' => 'edit')
 			).'?id='.$this->user->id,
 		);
 	}

@@ -19,10 +19,11 @@ Route::set(
 );
 
 Route::set(
-	'user actions',
-	'admin/user/<action>.html',
+	'actions',
+	'admin/<controller>/<action>.html',
 	array(
-		'action' => 'add|edit|delete|index'
+		'action' => 'add|edit|delete|index|view',
+		'controller' => 'user|order|address',
 	)
 )->defaults(
 	array(

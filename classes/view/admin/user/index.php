@@ -56,14 +56,14 @@ class View_Admin_User_Index extends View_Admin_Layout
 	public function routes()
 	{
 		return parent::routes()+array(
-			'add_user' => Route::get('user actions')->uri(
-				array('action' => 'add')
+			'add_user' => Route::get('actions')->uri(
+				array('controller' => 'user', 'action' => 'add')
 			),
-			'edit_user' => Route::get('user actions')->uri(
-				array('action' => 'edit')
+			'edit_user' => Route::get('actions')->uri(
+				array('controller' => 'user', 'action' => 'edit')
 			),
-			'delete_user' => Route::get('user actions')->uri(
-				array('action' => 'delete')
+			'delete_user' => Route::get('actions')->uri(
+				array('controller' => 'user', 'action' => 'delete')
 			),
 		);
 	}

@@ -183,7 +183,9 @@ class Controller_Admin_User extends Controller_Admin
 		// check for csrf
 		if ( ! security::check('user', 'delete'))
 		{
-			$this->request->redirect(Route::get('user actions')->uri());
+			$this->request->redirect(Route::get('actions')->uri(
+				array('controller' => 'user'))
+			);
 		}
 
 		// delete the user
@@ -191,6 +193,8 @@ class Controller_Admin_User extends Controller_Admin
 		$user->delete();
 
 		// redirect
-		$this->request->redirect(Route::get('user actions')->uri());
+		$this->request->redirect(Route::get('user actions')->uri(
+			array('controller' => 'user'))
+		);
 	}
 }

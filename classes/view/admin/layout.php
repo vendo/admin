@@ -39,10 +39,22 @@ class View_Admin_Layout extends View_Layout
 			'text'     => 'Manage Products',
 		);
 		$links[] = array(
-			'location' => Route::get('user actions')->uri(
-				array('action' => 'index')
+			'location' => Route::get('actions')->uri(
+				array(
+					'controller' => 'user',
+					'action' => 'index',
+				)
 			),
 			'text'     => 'Manage Users',
+		);
+		$links[] = array(
+			'location' => Route::get('actions')->uri(
+				array(
+					'controller' => 'order',
+					'action' => 'index',
+				)
+			),
+			'text'     => 'Manage Orders',
 		);
 
 		return $links;
