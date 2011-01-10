@@ -8,7 +8,7 @@
  * @copyright (c) 2010-2011 Jeremy Bush
  * @license   ISC License http://github.com/zombor/Vendo/raw/master/LICENSE
  */
-class View_Admin_Product_Photos extends View_Layout
+class View_Admin_Product_Photos extends View_Admin_Layout
 {
 	public $title = 'Product Photos';
 	public $success;

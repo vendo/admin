@@ -8,7 +8,7 @@
  * @copyright (c) 2010-2011 Jeremy Bush
  * @license   ISC License http://github.com/zombor/Vendo/raw/master/LICENSE
  */
-class View_Admin_Photo_Index extends View_Layout
+class View_Admin_Photo_Index extends View_Admin_Layout
 {
 	public $title = 'All Photos';
 	public $errors;

@@ -20,4 +20,14 @@ class Controller_Admin extends Controller
 
 		Auth::instance()->get_user()->assert('use_admin');
 	}
+
+	/**
+	 * Index method for general admin actions
+	 *
+	 * @return null
+	 */
+	public function action_index()
+	{
+		$this->request->response = new View_Admin_Index;
+	}
 }

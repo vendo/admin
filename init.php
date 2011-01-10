@@ -9,6 +9,16 @@
  */
 
 Route::set(
+	'admin panel',
+	'admin/index.html'
+)->defaults(
+	array(
+		'controller' => 'admin',
+		'action' => 'index',
+	)
+);
+
+Route::set(
 	'user actions',
 	'admin/user/<action>.html',
 	array(
