@@ -16,8 +16,8 @@ class Controller_Admin_ORder extends Controller_Admin
 	 */
 	public function action_index()
 	{
-		$this->request->response = new View_Admin_Order_Index;
-		$this->request->response->page = arr::get($_GET, 'p', 1);
+		$this->view = new View_Admin_Order_Index;
+		$this->view->page = arr::get($_GET, 'p', 1);
 	}
 
 	/**
@@ -34,7 +34,7 @@ class Controller_Admin_ORder extends Controller_Admin
 			throw new Vendo_404('Order not found!');
 		}
 
-		$this->request->response = new View_Admin_Order_View;
-		$this->request->response->order = $order;
+		$this->view = new View_Admin_Order_View;
+		$this->view->order = $order;
 	}
 }

@@ -32,7 +32,7 @@ class View_Admin_Order_Index extends View_Admin_Layout
 				'contact_id' => $order->contact_id,
 				'date_created' => date('m/d/Y', $order->date_created),
 				'address_id' => $order->address_id,
-				'amount' => $order->amount(),
+				'amount' => number_format($order->amount(), 2),
 			);
 		}
 

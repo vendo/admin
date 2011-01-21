@@ -16,7 +16,7 @@ class Controller_Admin_Category extends Controller_Admin
 	 */
 	public function action_index()
 	{
-		$this->request->response = new View_Admin_Category_Index;
+		$this->response->body(new View_Admin_Category_Index);
 	}
 
 	/**
@@ -26,9 +26,9 @@ class Controller_Admin_Category extends Controller_Admin
 	 */
 	public function action_add()
 	{
-		$this->request->response = new View_Admin_Category_Form;
-		$this->request->response->bind('category', $category);
-		$this->request->response->bind('errors', $errors);
+		$this->view = new View_Admin_Category_Form;
+		$this->view->bind('category', $category);
+		$this->view->bind('errors', $errors);
 
 		$category = new Model_Vendo_Product_Category;
 
@@ -59,9 +59,9 @@ class Controller_Admin_Category extends Controller_Admin
 	public function action_edit()
 	{
 		$id = arr::get($_GET, 'id');
-		$this->request->response = new View_Admin_Category_Form;
-		$this->request->response->bind('category', $category);
-		$this->request->response->bind('errors', $errors);
+		$this->view = new View_Admin_Category_Form;
+		$this->view->bind('category', $category);
+		$this->view->bind('errors', $errors);
 
 		$category = new Model_Vendo_Product_Category($id);
 
