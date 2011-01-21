@@ -16,7 +16,7 @@ class Controller_Admin_Category extends Controller_Admin
 	 */
 	public function action_index()
 	{
-		$this->response->body(new View_Admin_Category_Index);
+		
 	}
 
 	/**
