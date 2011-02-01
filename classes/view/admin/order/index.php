@@ -24,7 +24,7 @@ class View_Admin_Order_Index extends View_Admin_Layout
 	{
 		$orders = array();
 
-		foreach (Model_Order::get_orders(10, $this->page) as $order)
+		foreach (Model_Order::get_orders(10, $this->page-1) as $order)
 		{
 			$orders[] = array(
 				'id' => $order->id,
@@ -37,6 +37,29 @@ class View_Admin_Order_Index extends View_Admin_Layout
 		}
 
 		return $orders;
+	}
+
+	/**
+	 * Gets pages information for pagination
+	 *
+	 * @return array
+	 */
+	public function pages()
+	{
+		$pages = array();
+		for ($i = 1; $i <= ceil(
+			Model::factory('order')->load(NULL, NULL)->count()/10
+		); $i++)
+		{
+			$pages[] = array(
+				'text' => $i,
+				'link' => Route::get('actions')->uri(
+					array('controller' => 'order', 'action' => 'index')
+				).'?p='.$i,
+			);
+		}
+
+		return $pages;
 	}
 
 	/**

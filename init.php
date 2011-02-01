@@ -27,6 +27,7 @@ Route::set(
 	)
 )->defaults(
 	array(
+		'directory' => 'admin',
 		'controller' => 'user',
 		'action' => 'index',
 	)
