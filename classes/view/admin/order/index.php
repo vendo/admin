@@ -26,14 +26,31 @@ class View_Admin_Order_Index extends View_Admin_Layout
 
 		foreach (Model_Order::get_orders(10, $this->page-1) as $order)
 		{
-			$orders[] = array(
+			$foo = array(
 				'id' => $order->id,
-				'user_id' => $order->user_id,
-				'contact_id' => $order->contact_id,
 				'date_created' => date('m/d/Y', $order->date_created),
 				'address_id' => $order->address_id,
 				'amount' => number_format($order->amount(), 2),
 			);
+
+			if ($order->user_id)
+			{
+				$foo['user'] = array(
+					'id' => $order->user_id,
+					'name' => $order->user->last_name.', '.
+						$order->user->first_name,
+				);
+			}
+			elseif ($order->contact_id)
+			{
+				$foo['contact'] = array(
+					'id' => $order->contact_id,
+					'name' => $order->contact->last_name.', '.
+						$order->contact->first_name,
+				);
+			}
+
+			$orders[] = $foo;
 		}
 
 		return $orders;
