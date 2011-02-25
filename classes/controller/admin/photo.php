@@ -16,8 +16,8 @@ class Controller_Admin_Photo extends Controller_Admin
 	 */
 	public function action_index()
 	{
-		$this->request->response = new View_Admin_Photo_Index;
-		$this->request->response->errors = Session::instance()->get('errors');
+		$this->view = new View_Admin_Photo_Index;
+		$this->view->errors = Session::instance()->get('errors');
 		Session::instance()->set('errors', NULL);
 	}
 

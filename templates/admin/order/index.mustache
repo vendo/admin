@@ -1,0 +1,31 @@
+<ul class="pagination">
+	{{#pages}}<li><a href="{{link}}">{{text}}</a></li>{{/pages}}
+</ul>
+<table>
+	<thead>
+		<tr>
+			<th>Order</th>
+			<th>Purchaser</th>
+			<th>Date</th>
+			<th>Amount</th>
+			<th>Admin</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#orders}}<tr>
+			<td><a href="{{#routes}}{{order_view}}{{/routes}}?id={{id}}">{{id}}</a></td>
+			<td>
+				{{#user}}<a href="{{#routes}}{{user}}{{/routes}}?id={{id}}">{{name}}</a>{{/user}}
+				{{^user}}{{#contact}}<a href="{{#routes}}{{contact}}{{/routes}}?id={{id}}">{{name}}</a>{{/contact}}{{/user}}
+			</td>
+			<td>{{date_created}}</td>
+			<td>${{amount}}</td>
+			<td>
+				
+			</td>
+		</tr>{{/orders}}
+	</tbody>
+</table>
+<ul class="pagination">
+	{{#pages}}<li><a href="{{link}}">{{text}}</a></li>{{/pages}}
+</ul>

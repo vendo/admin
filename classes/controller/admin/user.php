@@ -16,7 +16,7 @@ class Controller_Admin_User extends Controller_Admin
 	 */
 	public function action_index()
 	{
-		$this->request->response = new View_Admin_User_Index;
+		$this->view = new View_Admin_User_Index;
 	}
 	
 	/**
@@ -26,7 +26,7 @@ class Controller_Admin_User extends Controller_Admin
 	 */
 	public function action_add()
 	{
-		$this->request->response = new View_Admin_User_Add;
+		$this->view = new View_Admin_User_Add;
 
 		$user = new Model_Vendo_User;
 		$address = new Model_Vendo_Address;
@@ -76,11 +76,11 @@ class Controller_Admin_User extends Controller_Admin
 					$user->vendo_roles = $role;
 				}
 
-				Request::instance()->redirect('home');
+				Request::current()->redirect('home');
 			}
 			catch (AutoModeler_Exception $e)
 			{
-				$this->request->response->errors = (string) $e;
+				$this->view->errors = (string) $e;
 
 				// If we've saved an address, get rid of it because it's junk
 				// This can happen if the address is valid on the page, but the
@@ -92,8 +92,8 @@ class Controller_Admin_User extends Controller_Admin
 			}
 		}
 
-		$this->request->response->user = $user;
-		$this->request->response->address = $address;
+		$this->view->user = $user;
+		$this->view->address = $address;
 	}
 	
 	/**
@@ -103,7 +103,7 @@ class Controller_Admin_User extends Controller_Admin
 	 */
 	public function action_edit()
 	{
-		$this->request->response = new View_Admin_User_Edit;
+		$this->view = new View_Admin_User_Edit;
 		$user = new Model_Vendo_User(arr::get($_GET, 'id'));
 		$address = $user->address ? $user->address : new Model_Vendo_Address;
 
@@ -113,18 +113,19 @@ class Controller_Admin_User extends Controller_Admin
 			$address_post = arr::get($_POST, 'address', array());
 
 			$validate = NULL;
-			if (arr::get($_POST, 'password'))
+			if (arr::path($_POST, 'user.password'))
 			{
 				$validate = Model_Vendo_User::get_password_validation(
 					$user_post
 				);
+
+				$user->set_fields($user_post);
 			}
 			else
 			{
 				unset($user_post['password'], $user_post['repeat_password']);
 			}
 
-			$user->set_fields($user_post);
 			$address->set_fields($address_post);
 			$address->id = NULL;
 
@@ -158,17 +159,17 @@ class Controller_Admin_User extends Controller_Admin
 
 				$user->save($validate);
 
-				$this->request->response->success =
+				$this->view->success =
 					'You have successfully updated the user';
 			}
 			catch (AutoModeler_Exception $e)
 			{
-				$this->request->response->errors = (string) $e;
+				$this->view->errors = (string) $e;
 			}
 		}
 
-		$this->request->response->user = $user;
-		$this->request->response->address = $address;
+		$this->view->user = $user;
+		$this->view->address = $address;
 	}
 	
 	/**

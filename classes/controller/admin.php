@@ -28,6 +28,6 @@ class Controller_Admin extends Controller
 	 */
 	public function action_index()
 	{
-		$this->request->response = new View_Admin_Index;
+		$this->view = new View_Admin_Index;
 	}
 }

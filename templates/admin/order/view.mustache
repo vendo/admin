@@ -1,0 +1,20 @@
+<h2>Order Details</h2>
+<h3>Purchaser Details</h3>
+<p>Registered User: {{#registered_user}}Yes{{/registered_user}}{{^registered_user}}No{{/registered_user}}</p>
+<div id="user_details">
+	<h4>User Details</h4>
+	{{#user}}<ul>
+		<li>Name: {{first_name}} {{last_name}}</li>
+		<li>Email: {{email}}</li>
+	</ul>{{/user}}
+	<h4>Shipping Information</h4>
+	{{#shipping}}<ul>
+		<li>Address: {{shipping_address}}</li>
+		<li>City: {{shipping_city}}</li>
+		<li>State: {{shipping_state}}</li>
+		<li>Postal Code: {{shipping_postal_code}}</li>
+	</ul>{{/shipping}}
+</div>
+<div id="order_details">
+	{{>cart}}
+</div>
