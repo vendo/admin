@@ -19,7 +19,7 @@ class View_Admin_Layout extends View_Layout
 	{
 		$links = array(
 			array(
-				'location' => '/',
+				'location' => URL::base(),
 				'text' => 'Return Home',
 			)
 		);
