@@ -64,7 +64,7 @@ class Controller_Admin_Product_Attribute extends Controller_Admin
 	 */
 	public function action_edit()
 	{
-		$id = $this->request->param('id');
+		$id = $this->request->query('id');
 		$this->view = new View_Admin_Product_Attribute_Form;
 		$this->view->title = 'Edit Product Attribute';
 		$this->view->bind('attribute', $attribute);

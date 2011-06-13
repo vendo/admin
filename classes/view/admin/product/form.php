@@ -47,6 +47,36 @@ class View_Admin_Product_Form extends View_Admin_Layout
 	}
 
 	/**
+	 * Returns an array of all attributes available for adding
+	 *
+	 * @return array
+	 */
+	public function attributes()
+	{
+		$attributes = array();
+
+		foreach (
+			Model::factory('vendo_product_attribute')->load(NULL, NULL)
+			as $attribute
+		)
+		{
+			$attributes[] = $attribute->as_array();
+		}
+		return $attributes;
+	}
+
+	/**
+	 * Gets all existing attributes and values for this product
+	 *
+	 * @return array
+	 */
+	public function existing_attributes()
+	{
+		echo Debug::vars($this->product->attributes());
+		return $this->product->attributes();
+	}
+
+	/**
 	 * Returns routes for this view
 	 *
 	 * @return array

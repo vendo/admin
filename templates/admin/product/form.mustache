@@ -30,4 +30,32 @@
 				<li><input type="submit" value="Submit" /></li>{{/product}}
 			</ul>
 	</fieldset>
+
+	<fieldset>
+		<legend>Attributes</legend>
+		<dl>
+			<dt>
+				<select name="new_attribute">
+					{{#attributes}}<option value="{{name}}">{{name}}</option>
+					{{/attributes}}
+				</select>
+			</dt>
+			<dd>
+				<input name="new_attribute_value" type="text" id="new_attribute_value" />
+			</dd>
+			<dd><input type="submit" value="Submit" /></dd>
+		</dl>
+	</fieldset>
+
+	<fieldset>
+		<legend>Existing Attributes</legend>
+		<dl>
+			{{#existing_attributes}}
+			<dt>{{name}}</dt>
+			{{#values}}
+			<dd>{{value}} - ${{price}}</dd>
+			{{/values}}
+			{{/existing_attributes}}
+		</dl>
+	</fieldset>
 </form>
