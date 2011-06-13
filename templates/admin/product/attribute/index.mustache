@@ -1,0 +1,18 @@
+<p><a href="admin/product_attribute/add">Add a product attribute</a></p>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Admin</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#attributes}}<tr>
+			<td>{{name}}</td>
+			<td>
+				<a href="{{#routes}}{{edit_product_attribute}}{{/routes}}?id={{id}}">Edit</a><br />
+				<form action="{{#routes}}{{delete_product_attribute}}{{/routes}}" method="post" style="display: inline-block;"><input type="hidden" name="id" value="{{id}}" /><input type="submit" value="delete" /></form>
+			</td>
+		</tr>{{/attributes}}
+	</tbody>
+</table>

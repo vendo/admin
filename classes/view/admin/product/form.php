@@ -45,4 +45,14 @@ class View_Admin_Product_Form extends View_Admin_Layout
 			NULL, TRUE, $this->product
 		);
 	}
+
+	/**
+	 * Returns routes for this view
+	 *
+	 * @return array
+	 */
+	public function routes()
+	{
+		return parent::routes();
+	}
 }

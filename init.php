@@ -23,7 +23,7 @@ Route::set(
 	'admin/<controller>/<action>.html',
 	array(
 		'action' => 'add|edit|delete|index|view',
-		'controller' => 'user|order|address|contact',
+		'controller' => 'user|order|address|contact|product|product_variant|product_attribute',
 	)
 )->defaults(
 	array(

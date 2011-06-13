@@ -41,6 +41,15 @@ class View_Admin_Layout extends View_Layout
 		$links[] = array(
 			'location' => Route::get('actions')->uri(
 				array(
+					'controller' => 'product_attribute',
+					'action' => 'index',
+				)
+			),
+			'text'     => 'Manage Product Attributes',
+		);
+		$links[] = array(
+			'location' => Route::get('actions')->uri(
+				array(
 					'controller' => 'user',
 					'action' => 'index',
 				)

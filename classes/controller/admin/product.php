@@ -28,6 +28,7 @@ class Controller_Admin_Product extends Controller_Admin
 	public function action_add()
 	{
 		$this->view = new View_Admin_Product_Form;
+		$this->view->title = 'Add A Product';
 		$this->view->bind('product', $product);
 		$this->view->bind('categories', $categories);
 		$this->view->bind('errors', $errors);
@@ -70,6 +71,7 @@ class Controller_Admin_Product extends Controller_Admin
 	{
 		$id = arr::get($_GET, 'id');
 		$this->view = new View_Admin_Product_Form;
+		$this->view->title = 'Edit Product';
 		$this->view->bind('product', $product);
 		$this->view->bind('errors', $errors);
 

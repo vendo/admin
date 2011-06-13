@@ -7,7 +7,7 @@
  * @copyright (c) 2010-2011 Jeremy Bush
  * @license   ISC License http://github.com/zombor/Vendo/raw/master/LICENSE
  */
-class Controller_Admin_ORder extends Controller_Admin
+class Controller_Admin_Order extends Controller_Admin
 {
 	/**
 	 * Lists all orders, paginated

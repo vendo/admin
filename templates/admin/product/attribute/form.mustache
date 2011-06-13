@@ -1,0 +1,13 @@
+<form method="post" class="bp">
+	<fieldset>
+		<legend>{{title}}</legend>
+			{{#errors}}<div class="error">{{{errors}}}</div>{{/errors}}
+			<ul>
+				{{#attribute}}<li>
+					<label for="name">Name</label><br />
+					<input type="text" name="name" id="name" value="{{name}}" />
+				</li>
+				<li><input type="submit" value="Submit" /></li>{{/attribute}}
+			</ul>
+	</fieldset>
+</form>
